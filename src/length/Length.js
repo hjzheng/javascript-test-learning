@@ -26,11 +26,11 @@ export default class Length {
     }
 
     static add(lengthA, lengthB) {
-        return new Length((lengthA._baseLength + lengthB._baseLength), "mm");
+        return new Length((lengthA._baseLength + lengthB._baseLength)/Length.units[lengthA.unit], lengthA.unit);
     }
 
     static subtract(lengthA, lengthB) {
-        return new Length(lengthA._baseLength - lengthB._baseLength, "mm");
+        return new Length((lengthA._baseLength - lengthB._baseLength)/Length.units[lengthA.unit], lengthA.unit);
     }
 }
 
@@ -39,4 +39,4 @@ Length.units = {
     "m": 1000,
     "mm": 1,
     "km": 1000000
-}
+};

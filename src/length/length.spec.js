@@ -39,11 +39,11 @@ describe('Length adding', () => {
 
 
     it('adding two length with same units should be OK', () => {
-        expect(Length.add(lenA, lenB)).toEqual(new Length(500, 'cm'));
+        expect(Length.add(lenA, lenB)).toEqual(new Length(50, 'cm'));
     });
 
     it('adding two length with different units should be OK', () => {
-        expect(Length.add(lenA, lenC)).toEqual(new Length(5200, 'cm'));
+        expect(Length.add(lenA, lenC)).toEqual(new Length(520, 'cm'));
     });
 
 });
@@ -63,10 +63,10 @@ describe('Length subtracting', () => {
     });
 
     it('subtract two length with same units should be OK', () => {
-        expect(Length.subtract(lenA, lenB)).toEqual(new Length(-100, 'cm'));
+        expect(Length.subtract(lenA, lenB)).toEqual(new Length(-10, 'cm'));
     });
 
     it('subtract two length with different units should be OK', () => {
-        expect(Length.subtract(lenA, lenC)).toEqual(new Length(-4800, 'cm'));
+        expect(Length.subtract(lenA, lenC)).toEqual(new Length(-480, 'cm'));
     });
 });

@@ -4,7 +4,8 @@
   "description": "JavaScript Test Learning",
   "main": "index.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "echo": "echo 'just a test, just run command npm run echo'"
   },
   "repository": {
     "type": "git",
