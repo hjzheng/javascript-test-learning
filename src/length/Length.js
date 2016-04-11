@@ -1,42 +1,37 @@
-export default class Length {
+class Length {
 
-    constructor(length, unit){
-        this.length = length || 0;
-        this.unit = unit || "mm";
-        this._baseLength = this.length * Length.units[this.unit];
+    constructor(length, unit) {
+        this.length = length;
+        this.unit = unit;
     }
 
-    toString() {
-        return this.length + this.unit;
-    }
-
-    toUnit(unit){
-        if(!unit) {
-            this.length = this._baseLength;
-            this.unit = "mm";
+    equals(len){
+        if(this.unit === len.unit) {
+            return this.length === len.length;
         } else {
-            this.length = this._baseLength/Length.units[unit];
-            this.unit = unit;
+            return this.length * this.unit.num === len.length * len.unit.num;
         }
-    }
-
-    //static
-    static toEqual(lengthA, lengthB) {
-        return lengthA._baseLength === lengthB._baseLength;
-    }
-
-    static add(lengthA, lengthB) {
-        return new Length((lengthA._baseLength + lengthB._baseLength)/Length.units[lengthA.unit], lengthA.unit);
-    }
-
-    static subtract(lengthA, lengthB) {
-        return new Length((lengthA._baseLength - lengthB._baseLength)/Length.units[lengthA.unit], lengthA.unit);
     }
 }
 
-Length.units = {
-    "cm" : 10,
-    "m": 1000,
-    "mm": 1,
-    "km": 1000000
-};
+class Unit {
+    constructor(name, num){
+        this.name = name;
+        this.num = num;
+    }
+
+    toString(){
+        return this.name;
+    }
+}
+
+const units = {
+    cm : new Unit("cm", 10),
+    mm : new Unit("mm", 1),
+    m : new Unit("m", 1000)
+}
+
+
+export {Length, units};
+
+
