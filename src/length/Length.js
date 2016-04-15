@@ -1,6 +1,6 @@
 class Length {
 
-    constructor(length, unit) {
+    constructor(length = 0, unit = 'mm') {
         this.length = length;
         this.unit = unit;
     }
